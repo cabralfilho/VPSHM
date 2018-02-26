@@ -15,4 +15,4 @@ else
     echo "VPSHM-scripts folder exists"
 fi
 
-echo " Run Nodejs Installer script";NODEJS="$(wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh nodejs)"; echo "${NODEJS}"
+echo " Run Nodejs Installer script";NODEJS="$(cd /tmp && wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh nodejs)"; echo "${NODEJS}"
