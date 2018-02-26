@@ -1,18 +1,27 @@
-echo "Update the system and install necessary packages"; UPDATE_1="$(yum install curl)"; echo "${UPDATE_1}"
+echo "Update the system and install necessary packages"
+yum install curl
 
 #We will install Node.js v9 LTS and npm from the NodeSource repository which depend on the EPEL repository being available.
 #To enable the EPEL repository on your CentOS 7 VPS, issue the following command:
-echo "Enable the EPEL repository"; RES="$(yum install epel-release)" echo "${RES}"
+echo "Enable the EPEL repository"
+yum install epel-release
 
 #Once the EPEL repository is enabled run the following command to add the Node.js v9 LTS repository:
-echo "Adding NodeJS v9.x repo"; RES="$(curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -)"; echo "${RES}"
+echo "Adding NodeJS v9.x repo"
+curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
 
 #Once the NodeSource repository is enabled we can proceed with the Node.js v9 LTS and npm installation:
-echo "Start NodeJS installation"; RES="$(yum install nodejs)"; echo "${RES}"
+echo "Start NodeJS installation"
+yum install nodejs
 
 #To compile and install native addons from the npm repository we also need to install build tools:
-echo"Install build tools"; RES="$(yum install gcc-c++ make)"; echo "${RES}"
-echo "All done. NodeJS version installed is: " v="$(node -v)"; echo "${v}"; 
-echo "Npm version installed is: " v="$(npm -v)"; echo "${v}"; 
+echo"Install build tools"
+yum install gcc-c++ make
+
+echo "All done. NodeJS version installed is: "
+node -v
+
+echo "Npm version installed is: "
+npm -v
 
 exit
