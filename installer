@@ -3,8 +3,12 @@
 echo "VPSHM - Virtual Private Server Host Manager Installer"
 echo ""
 
-SCRIPTS_DIR="VPSHM-scripts"
-
-#cd to the root directory
-cd /
-echo "current directory is $CWD"
+#create scripts folder if it doesnt exist
+if [ ! -d "/VPSHM-scripts" ]
+then
+    echo "Scripts folder doesn't exist. Creating now..."
+    echo "$(mkdir -p -- "/VPSHM-scripts" 2>&1| grep xy)"
+    echo "File created"
+else
+    echo "File exists"
+fi
