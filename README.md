@@ -6,3 +6,5 @@ run `cd /tmp && wget -O installer wget https://raw.githubusercontent.com/platinu
 
 Currently this only installs nodejs version 9.x . Does nothing else.
 Will finish the script in due time to install and configure a full blown server like cPanel
+
+NB: onlt tested on CentOS 7
