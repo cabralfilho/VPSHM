@@ -28,4 +28,5 @@ echo "Secure the installation of MariaDB"
 echo "You can answer /Y-RandomPass-RandomPass-Y-Y-Y-Y/ to the following prompts"
 /usr/bin/mysql_secure_installation
 
+mysql -V
 echo "All done"
