@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#usage wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh installer
+
 echo "VPSHM - Virtual Private Server Host Manager Installer"
 echo ""
 
@@ -13,5 +15,4 @@ else
     echo "VPSHM-scripts folder exists"
 fi
 
-echo "Update the system and install necessary packages"; UPDATE_1="$(yum install curl)"; echo "${UPDATE_1}"
-
+echo " Run Nodejs Installer script";NODEJS="$(wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh nodejs)"; echo "${NODEJS}"
