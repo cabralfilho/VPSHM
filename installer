@@ -6,7 +6,7 @@ echo ""
 #create scripts folder if it doesn't exist
 if [ ! -d "/VPSHM-scripts" ]
 then
-    echo "VPSHM-scripts folder doesn't exist. Creating now..."; res = $(mkdir -p -- "/VPSHM-scripts" 2>&1| grep xy); echo $res
+    echo "VPSHM-scripts folder doesn't exist. Creating now..."; RES = "$(mkdir -p -- '/VPSHM-scripts')"; echo "${RES}"
 else
     echo "VPSHM-scripts folder exists"
 fi
