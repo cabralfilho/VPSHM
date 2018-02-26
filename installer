@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#usage wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh installer
+#usage cd /tmp && wget -O installer wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh installer
 
 echo "VPSHM - Virtual Private Server Host Manager Installer"
 echo ""
