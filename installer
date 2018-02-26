@@ -18,5 +18,8 @@ fi
 echo "Run Nodejs Installer script";
 cd /VPSHM-scripts && wget -O nodejs https://raw.githubusercontent.com/platinumindustries/VPSHM/master/scripts/nodejs && sh nodejs
 
+echo "Run MYSQL Installer script";
+cd /VPSHM-scripts && wget -O mysql https://raw.githubusercontent.com/platinumindustries/VPSHM/master/scripts/mysql && sh mysql
+
 echo "Cleaning up" 
 cd /tmp && rm -fv installer
