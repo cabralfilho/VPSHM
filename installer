@@ -11,5 +11,5 @@ else
     echo "VPSHM-scripts folder exists"
 fi
 
-echo "Update the system and install necessary packages"
-echo "$(yum install curl)"
+echo "Update the system and install necessary packages"; UPDATE_1="$(yum install curl)"; echo "${UPDATE_1}"
+
