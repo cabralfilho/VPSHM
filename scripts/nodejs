@@ -15,7 +15,7 @@ echo "Start NodeJS installation"
 yum install nodejs
 
 #To compile and install native addons from the npm repository we also need to install build tools:
-echo"Install build tools"
+echo "Install build tools"
 yum install gcc-c++ make
 
 echo "All done. NodeJS version installed is: "
