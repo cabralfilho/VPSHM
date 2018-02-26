@@ -3,12 +3,15 @@
 echo "VPSHM - Virtual Private Server Host Manager Installer"
 echo ""
 
-#create scripts folder if it doesnt exist
+#create scripts folder if it doesn't exist
 if [ ! -d "/VPSHM-scripts" ]
 then
-    echo "Scripts folder doesn't exist. Creating now..."
-    res = $(mkdir -p -- "/VPSHM-scripts" 2>&1| grep xy)"
-    echo $res
+    echo "VPSHM-scripts folder doesn't exist. Creating now..."; res = $(mkdir -p -- "/VPSHM-scripts" 2>&1| grep xy)"; echo $res
 else
-    echo "File exists"
+    echo "VPSHM-scripts folder exists"
 fi
+
+echo "Preparing to install NodeJS"
+echo "Update the system and install necessary packages"
+
+echo `$(yum install curl sudo 2>&1 | grep xy)`
