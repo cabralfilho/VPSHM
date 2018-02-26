@@ -12,7 +12,3 @@ then
 else
     echo "VPSHM-scripts folder exists"
 fi
-
-echo "Preparing to install NodeJS"
-echo "Update the system and install necessary packages"
-
