@@ -7,8 +7,8 @@ echo ""
 if [ ! -d "/VPSHM-scripts" ]
 then
     echo "Scripts folder doesn't exist. Creating now..."
-    echo "$(mkdir -p -- "/VPSHM-scripts" 2>&1| grep xy)"
-    echo "File created"
+    res = $(mkdir -p -- "/VPSHM-scripts" 2>&1| grep xy)"
+    echo "$res"
 else
     echo "File exists"
 fi
