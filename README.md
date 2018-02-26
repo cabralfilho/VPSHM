@@ -2,7 +2,7 @@
 VPS Host Manager
 
 # Usage
-run wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh installer
+run `cd /tmp && wget -O installer wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh installer`
 
-This will install nodejs version 9.x
-Will finish the script in due time
+Currently this only installs nodejs version 9.x . Does nothing else.
+Will finish the script in due time to install and configure a full blown server like cPanel
