@@ -16,7 +16,7 @@ else
 fi
 
 echo "Run Nodejs Installer script";
-cd /tmp && wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/scripts/nodejs
+cd /VPSHM-scripts && wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/scripts/nodejs
 
 echo "Cleaning up" 
-rm -fv ./installer*
+cd /tmp && rm -fv ./installer*
