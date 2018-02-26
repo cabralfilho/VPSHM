@@ -9,12 +9,14 @@ echo ""
 if [ ! -d "/VPSHM-scripts" ]
 then
     echo "VPSHM-scripts folder doesn't exist. Creating now..."; 
-    RES="$(mkdir -p -- '/VPSHM-scripts')"; 
-    echo "${RES}"
+    mkdir -p -- '/VPSHM-scripts'
+    echo "VPSHM-scripts folder created"
 else
     echo "VPSHM-scripts folder exists"
 fi
 
-echo "Run Nodejs Installer script";NODEJS="$(cd /tmp && wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/installer && sh nodejs)"; echo "${NODEJS}"
-echo "Clean up" 
+echo "Run Nodejs Installer script";
+cd /tmp && wget https://raw.githubusercontent.com/platinumindustries/VPSHM/master/scripts/nodejs
+
+echo "Cleaning up" 
 rm -fv ./installer*
