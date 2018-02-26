@@ -7,4 +7,4 @@ $SCRIPTS_DIR="VPSHM-scripts"
 
 #cd to the root directory
 cd /
-echo "current directory is $PWD"
+echo "current directory is $CWD"
