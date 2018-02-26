@@ -19,4 +19,4 @@ echo "Run Nodejs Installer script";
 cd /VPSHM-scripts && wget -O nodejs https://raw.githubusercontent.com/platinumindustries/VPSHM/master/scripts/nodejs && sh nodejs
 
 echo "Cleaning up" 
-cd /tmp && rm -fv ./installer*
+cd /tmp && rm -fv installer
