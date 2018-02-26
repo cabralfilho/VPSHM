@@ -1,6 +1,9 @@
 #!/bin/bash
 
+echo "VPSHM - Virtual Private Server Host Manager Installer"
 echo ""
-echo "VPSHM - Virtual Private Server Host Manager Installer Shell"
-echo ""
-echo "Checking NodeJS"
+
+SCRIPTS_DIR = "VPSHM-scripts"
+
+#cd to the root directory
+echo "$(cd /)"
