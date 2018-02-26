@@ -3,7 +3,7 @@
 echo "VPSHM - Virtual Private Server Host Manager Installer"
 echo ""
 
-$SCRIPTS_DIR = "VPSHM-scripts"
+$SCRIPTS_DIR="VPSHM-scripts"
 
 #cd to the root directory
 echo "$(cd /)"
