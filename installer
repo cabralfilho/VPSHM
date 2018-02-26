@@ -12,4 +12,4 @@ else
 fi
 
 echo "Update the system and install necessary packages"
-echo "$(yum install curl sudo 2>&1 | grep xy)"
+echo "$(yum install curl)"
