@@ -16,7 +16,7 @@ enabled=1
 EOF
 
 echo "Preparing to install CouchDB"
-yum -y install epel-release && yum install couchdb
+yum -y install epel-release && yum install curl && yum install couchdb
 
 echo "Running first time setup..."
 curl -X PUT http://127.0.0.1:5984/_users
