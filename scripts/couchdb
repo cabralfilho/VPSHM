@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo ""
+echo "VPSHM - Virtual Private Server Host Manager Installer Shell"
+echo ""
+echo "Checking MYSQL"
+echo "Adding MYSQL YUM repo"
+
+cat <<EOF | sudo tee -a /etc/yum.repos.d/MariaDB.repo
+# MariaDB 10.2 CentOS repository list - created 2018-02-26 19:23 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.2/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+EOF
+
+echo "Preparing to install MYSQL"
+yum install MariaDB-server MariaDB-client -y
+
+echo "Done."
+echo "Start the MariaDB service and make it auto-start on system boot"
+systemctl start mariadb.service
+systemctl enable mariadb.service
+
+echo "Secure the installation of MariaDB"
+echo "You can answer /Y-RandomPass-RandomPass-Y-Y-Y-Y/ to the following prompts"
+/usr/bin/mysql_secure_installation
+
+mysql -V
+echo "All done"
