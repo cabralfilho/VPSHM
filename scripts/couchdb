@@ -3,30 +3,36 @@
 echo ""
 echo "VPSHM - Virtual Private Server Host Manager Installer Shell"
 echo ""
-echo "Checking MYSQL"
-echo "Adding MYSQL YUM repo"
+echo "Checking CouchDB"
+echo "Adding CouchDB YUM repo"
 
-cat <<EOF | sudo tee -a /etc/yum.repos.d/MariaDB.repo
-# MariaDB 10.2 CentOS repository list - created 2018-02-26 19:23 UTC
-# http://downloads.mariadb.org/mariadb/repositories/
-[mariadb]
-name = MariaDB
-baseurl = http://yum.mariadb.org/10.2/centos7-amd64
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1
+cat <<EOF | sudo tee -a /etc/yum.repos.d/bintray-apache-couchdb-rpm.repo
+[bintray--apache-couchdb-rpm]
+name=bintray--apache-couchdb-rpm
+baseurl=http://apache.bintray.com/couchdb-rpm/el$releasever/$basearch/
+gpgcheck=0
+repo_gpgcheck=0
+enabled=1
 EOF
 
-echo "Preparing to install MYSQL"
-yum install MariaDB-server MariaDB-client -y
+echo "Preparing to install CouchDB"
+yum -y install epel-release && yum install couchdb
 
-echo "Done."
-echo "Start the MariaDB service and make it auto-start on system boot"
-systemctl start mariadb.service
-systemctl enable mariadb.service
+echo "Running first time setup..."
+curl -X PUT http://127.0.0.1:5984/_users
+curl -X PUT http://127.0.0.1:5984/_replicator
 
-echo "Secure the installation of MariaDB"
-echo "You can answer /Y-RandomPass-RandomPass-Y-Y-Y-Y/ to the following prompts"
-/usr/bin/mysql_secure_installation
+echo "Allow access from web"
+sed -i 's/;port = 5984/port = 5984/g' /usr/local/etc/couchdb/local.ini
+sed -i 's/;bind_address = 127.0.0.1/bind_address = 0.0.0.0/g' /usr/local/etc/couchdb/local.ini
 
-mysql -V
+echo "Set couchdb to start on as daemon on boot"
+ln -s /usr/local/etc/rc.d/couchdb /etc/init.d/couchdb
+chkconfig --add couchdb
+chkconfig --level 345 couchdb on
+
+echo "Modify firewall rules"
+firewall-cmd --permanent --zone=public --add-port=5984/tcp
+firewall-cmd --reload
+
 echo "All done"
