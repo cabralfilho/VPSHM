@@ -15,7 +15,7 @@ echo "Start NodeJS installation"
 yum install nodejs
 
 echo "Enable NodeJS to use lower ports"
-setcap 'cap_net_bind_service=+ep' /usr/local/bin/node
+setcap 'cap_net_bind_service=+ep' `which node`
 
 #To compile and install native addons from the npm repository we also need to install build tools:
 echo "Install build tools"
